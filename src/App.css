@@ -1,6 +1,7 @@
 .App {
   padding-top: 4rem;
   min-height: 100vh;
+  background: url('./sky-image.jpeg') center center/cover;
 }
 .navbar {
   background-color: #ef5350 !important;
@@ -31,4 +32,11 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
 }

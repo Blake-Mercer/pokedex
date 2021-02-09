@@ -20,13 +20,24 @@ export default function Dashboard() {
     fetchData();
   }, []);
 
+  let controls = (
+    <div className='btn'>
+      <button>Next</button>
+    </div>
+  );
+  if (prevUrl != null) {
+    controls = (
+      <div className='btn'>
+        <button>Prev</button>
+        <button>Next</button>
+      </div>
+    );
+  }
+
   return (
     <div className='row'>
       <div className='col'>
-        <div className='btn'>
-          <button>Prev</button>
-          <button>Next</button>
-        </div>
+        {controls}
         {loading ? (
           <h1>Loading Pokemon</h1>
         ) : (
