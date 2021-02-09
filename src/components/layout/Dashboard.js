@@ -20,16 +20,35 @@ export default function Dashboard() {
     fetchData();
   }, []);
 
+  const next = async () => {
+    setLoading(true);
+    let data = await axios.get(nextUrl);
+    setNextUrl(data.data.next);
+    setPrevUrl(data.data.previous);
+    setPokemonData(data.data.results);
+    setLoading(false);
+  };
+
+  const prev = async () => {
+    if (!prevUrl) return;
+    setLoading(true);
+    let data = await axios.get(prevUrl);
+    setNextUrl(data.data.next);
+    setPrevUrl(data.data.previous);
+    setPokemonData(data.data.results);
+    setLoading(false);
+  };
+
   let controls = (
     <div className='btn'>
-      <button>Next</button>
+      <button onClick={next}>Next</button>
     </div>
   );
   if (prevUrl != null) {
     controls = (
       <div className='btn'>
-        <button>Prev</button>
-        <button>Next</button>
+        <button onClick={prev}>Prev</button>
+        <button onClick={next}>Next</button>
       </div>
     );
   }

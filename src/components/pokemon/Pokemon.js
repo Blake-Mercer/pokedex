@@ -351,7 +351,7 @@ export default class Pokemon extends Component {
               </div>
             </div>
           </div>
-          <div class='card-footer text-muted'>
+          <div className='card-footer text-muted'>
             Sourced From{' '}
             <a
               href='https://pokeapi.co/'
